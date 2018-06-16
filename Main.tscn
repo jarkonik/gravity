@@ -39,14 +39,29 @@ script = ExtResource( 1 )
 
 [node name="Earth" parent="Planets" index="0" instance=ExtResource( 2 )]
 
-[node name="Mars" parent="Planets" index="1" instance=ExtResource( 2 )]
+position = Vector2( 1160, 0 )
+scale = Vector2( 0.05, 0.05 )
+velocity = Vector2( 0, 10 )
+mass = 50000
+is_static = false
+gravity_source = true
 
-position = Vector2( 1130, 0 )
+[node name="Moon" parent="Planets" index="1" instance=ExtResource( 2 )]
 
-[node name="Sun" type="Sprite" parent="." index="2"]
+position = Vector2( 1230, 0 )
+scale = Vector2( 0.005, 0.005 )
+velocity = Vector2( 0, 150 )
+mass = 500
+is_static = false
+gravity_source = true
 
-scale = Vector2( 0.2, 0.2 )
+[node name="Sun" parent="Planets" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 10, 0 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+velocity = Vector2( 0, 0 )
+mass = 16000
+is_static = true
+gravity_source = true
 
 

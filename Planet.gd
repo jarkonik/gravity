@@ -4,12 +4,14 @@ extends Sprite
 # var a = 2
 # var b = "textvar"
 
-var velocity = Vector2(0, 100)
+export var velocity = Vector2(0, 0)
+
 var acceleration = Vector2(0, 0)  
 export var mass = 1
+export var is_static = false
+export var gravity_source = true
 
-const SUN_MASS = 100000
-const GRAV_CONST = 100
+const GRAV_CONST = 20
 
 var path = []
 const PATH_COLOR = PoolColorArray([Color(1.0, 0.0, 0.0)])
@@ -19,17 +21,36 @@ func _ready():
 	# Initialization here
 	pass
 	
-func force():
-	var val = (GRAV_CONST * mass * SUN_MASS) / position.length_squared()
-	var dir = -position.normalized()
+func object_force(object):
+	if !object.gravity_source:
+		return Vector2(0, 0)
+	
+	var distance_vec = position - object.position
+	if distance_vec.length() <= 0:
+		return Vector2(0, 0)
+	
+	var val = (GRAV_CONST * mass * object.mass) / distance_vec.length_squared()
+	var dir = -distance_vec.normalized()
 	
 	return dir * val
 	
+func force():
+	var siblings = get_parent().get_children()
+	var force = Vector2(0, 0)
+	for sibling in siblings:
+		force += object_force(sibling)
+	return force
+	
 func _physics_process(delta):
+	if is_static:
+		return
+
 	position = position + velocity * delta
 	acceleration = force() / mass;
 	velocity += delta * acceleration;
 
+	if path.size() > 3000:
+		path.pop_front()
 	path.append(position)
 	
 #func _process(delta):
