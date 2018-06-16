@@ -46,9 +46,10 @@ func _physics_process(delta):
 	if is_static:
 		return
 
-	position = position + velocity * delta
 	acceleration = force() / mass;
-	velocity += delta * acceleration;
+	position += delta * (velocity + acceleration * delta / 2)
+	var new_acceleration = force() / mass;
+	velocity += delta * (acceleration + new_acceleration) / 2;
 
 	if path.size() > 10000:
 		path.pop_front()
