@@ -10,6 +10,7 @@ var acceleration = Vector2(0, 0)
 export var mass = 1
 export var is_static = false
 export var gravity_source = true
+export var path_color = Color(1, 0, 0)
 
 const GRAV_CONST = 20
 
@@ -49,7 +50,7 @@ func _physics_process(delta):
 	acceleration = force() / mass;
 	velocity += delta * acceleration;
 
-	if path.size() > 3000:
+	if path.size() > 10000:
 		path.pop_front()
 	path.append(position)
 	

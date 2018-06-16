@@ -18,7 +18,7 @@ func _draw():
 		for i in range(1, path.size()):
 			var start = path[i - 1]
 			var end = path[i]
-			draw_line(start + position, end + position, Color(255, 0, 0), 1)
+			draw_line(start + position, end + position, child.path_color, 1)
 
 
 #func _process(delta):

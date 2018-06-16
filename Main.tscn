@@ -45,6 +45,7 @@ velocity = Vector2( 0, 10 )
 mass = 50000
 is_static = false
 gravity_source = true
+path_color = Color( 1, 0, 0, 1 )
 
 [node name="Moon" parent="Planets" index="1" instance=ExtResource( 2 )]
 
@@ -54,6 +55,7 @@ velocity = Vector2( 0, 150 )
 mass = 500
 is_static = false
 gravity_source = true
+path_color = Color( 0.0546875, 0, 1, 1 )
 
 [node name="Sun" parent="Planets" index="2" instance=ExtResource( 2 )]
 
@@ -63,5 +65,6 @@ velocity = Vector2( 0, 0 )
 mass = 16000
 is_static = true
 gravity_source = true
+path_color = Color( 1, 0, 0, 1 )
 
 
