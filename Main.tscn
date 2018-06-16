@@ -75,6 +75,6 @@ velocity = Vector2( 0, -80 )
 mass = 2000
 is_static = false
 gravity_source = true
-path_color = Color( 1, 0, 0, 1 )
+path_color = Color( 0.242188, 1, 0, 1 )
 
 
