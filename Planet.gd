@@ -12,7 +12,8 @@ export var mass = 1
 export var is_static = false
 export var gravity_source = true
 export var path_color = Color(1, 0, 0)
-export var set_orbit_velocity = false setget set_orbit_velocity
+export var clockwise_rotation = false
+
 export(NodePath) var gravity_parent = null
 
 const GRAV_CONST = 25
@@ -24,17 +25,14 @@ func orbit_velocity():
 	var parent = get_node(gravity_parent)
 	var r = (position - parent.position).length()
 	var vel = sqrt((GRAV_CONST * parent.mass) / r)
+	if clockwise_rotation:
+		vel = -vel
 	return Vector2(0, vel)
 
-func set_orbit_velocity(value):
-	if gravity_parent && value:
+func _ready():
+	if gravity_parent:
 		velocity = orbit_velocity()
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-	
 func object_force(object):
 	if !object.gravity_source:
 		return Vector2(0, 0)
@@ -56,6 +54,8 @@ func force():
 	return force
 	
 func _physics_process(delta):
+	delta = delta / 5
+	
 	if is_static || Engine.is_editor_hint():
 		return
 

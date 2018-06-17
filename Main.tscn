@@ -13,7 +13,7 @@ _sections_unfolded = [ "Material" ]
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 4, 4 )
+zoom = Vector2( 2, 2 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -37,37 +37,53 @@ editor_draw_drag_margin = false
 
 script = ExtResource( 1 )
 
-[node name="Earth" parent="Planets" index="0" instance=ExtResource( 2 )]
+[node name="Sun" parent="Planets" index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 1160, 0 )
-scale = Vector2( 0.03, 0.03 )
-velocity = Vector2( 0, 46.6252 )
-mass = 50000
-gravity_parent = NodePath("../Sun")
-
-[node name="Moon" parent="Planets" index="1" instance=ExtResource( 2 )]
-
-position = Vector2( 1080, 0 )
-scale = Vector2( 0.005, 0.005 )
-velocity = Vector2( 0, 125 )
-mass = 500
-path_color = Color( 0.0546875, 0, 1, 1 )
-gravity_parent = NodePath("../Earth")
-
-[node name="Sun" parent="Planets" index="2" instance=ExtResource( 2 )]
-
-position = Vector2( 10, 0 )
+position = Vector2( 0, 0 )
+scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 3 )
-mass = 100000
+_sections_unfolded = [ "Transform" ]
+mass = 27247945
 is_static = true
+clockwise_rotation = false
 
-[node name="Venus" parent="Planets" index="3" instance=ExtResource( 2 )]
+[node name="Mercury" parent="Planets" index="1" instance=ExtResource( 2 )]
 
-position = Vector2( -410, 0 )
+position = Vector2( 100, 0 )
 scale = Vector2( 0.02, 0.02 )
 velocity = Vector2( 0, 77.1517 )
-mass = 10000
-path_color = Color( 0.242188, 1, 0, 1 )
+mass = 5
+path_color = Color( 1, 0.398438, 0, 1 )
+clockwise_rotation = false
+gravity_parent = NodePath("../Sun")
+
+[node name="Venus" parent="Planets" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 186, 0 )
+scale = Vector2( 0.02, 0.02 )
+velocity = Vector2( 0, 77.1517 )
+mass = 67
+path_color = Color( 0.898438, 1, 0, 1 )
+clockwise_rotation = true
+gravity_parent = NodePath("../Sun")
+
+[node name="Earth" parent="Planets" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 258, 0 )
+scale = Vector2( 0.02, 0.02 )
+velocity = Vector2( 0, 77.1517 )
+mass = 82
+path_color = Color( 0.125, 0, 1, 1 )
+clockwise_rotation = false
+gravity_parent = NodePath("../Sun")
+
+[node name="Mars" parent="Planets" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 393, 0 )
+scale = Vector2( 0.02, 0.02 )
+velocity = Vector2( 0, 77.1517 )
+mass = 9
+clockwise_rotation = false
 gravity_parent = NodePath("../Sun")
 
 

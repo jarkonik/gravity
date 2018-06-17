@@ -15,7 +15,7 @@ mass = 1
 is_static = false
 gravity_source = true
 path_color = Color( 1, 0, 0, 1 )
-set_orbit_velocity = false
+clockwise_rotation = false
 gravity_parent = null
 
 
