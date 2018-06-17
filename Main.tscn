@@ -42,14 +42,15 @@ script = ExtResource( 1 )
 position = Vector2( 0, 0 )
 scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 3 )
-mass = 160000
+mass = 27071155
 is_static = true
 
 [node name="Mercury" parent="Planets" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 130, 0 )
 scale = Vector2( 0.02, 0.02 )
-mass = 50
+velocity = Vector2( 0, -175.412 )
+mass = 5
 path_color = Color( 1, 0.398438, 0, 1 )
 gravity_parent = NodePath("../Sun")
 
@@ -57,26 +58,26 @@ gravity_parent = NodePath("../Sun")
 
 position = Vector2( 280, 0 )
 scale = Vector2( 0.02, 0.02 )
-mass = 50
+velocity = Vector2( 0, 119.523 )
+mass = 67
 path_color = Color( 0.898438, 1, 0, 1 )
 clockwise_rotation = true
 gravity_parent = NodePath("../Sun")
 
 [node name="Earth" parent="Planets" index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 650, 0 )
+position = Vector2( 651, 0 )
 scale = Vector2( 0.01, 0.01 )
-velocity = Vector2( 0, -1619.58 )
+velocity = Vector2( 0, -78.4465 )
 mass = 50000
 path_color = Color( 0.125, 0, 1, 1 )
 gravity_parent = NodePath("../Sun")
 
 [node name="Moon" parent="Planets" index="4" instance=ExtResource( 2 )]
 
-position = Vector2( 690, 0 )
+position = Vector2( 670, 0 )
 scale = Vector2( 0.001, 0.001 )
-velocity = Vector2( 0, -130.703 )
-mass = 500
+velocity = Vector2( 0, -176.777 )
 gravity_parent = NodePath("../Earth")
 
 

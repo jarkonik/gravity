@@ -17,7 +17,7 @@ export var custom_velocity = false
 
 export(NodePath) var gravity_parent = null
 
-const GRAV_CONST = 25
+const GRAV_CONST = 1
 
 var path = []
 const PATH_COLOR = PoolColorArray([Color(1.0, 0.0, 0.0)])
@@ -33,7 +33,7 @@ func orbit_velocity():
 	if !clockwise_rotation:
 		vel = -vel
 	
-	return Vector2(0, vel)
+	return Vector2(0, vel) + parent.orbit_velocity()
 
 func _ready():
 	if !custom_velocity:
@@ -67,11 +67,10 @@ func _physics_process(delta):
 	position += delta * (velocity + acceleration * delta / 2)
 	var new_acceleration = force() / mass;
 	velocity += delta * (acceleration + new_acceleration) / 2;
-
 	
 	if path.size() > 500:
 		path.pop_front()
-	if path.size() == 0 || (path[path.size() - 1] - position).length() > 10:
+	if path.size() == 0 || (path[path.size() - 1] - position).length() > 5:
 		path.append(position)
 	
 #func _process(delta):
