@@ -1,3 +1,4 @@
+tool
 extends Sprite
 
 # class member variables go here, for example:
@@ -11,11 +12,23 @@ export var mass = 1
 export var is_static = false
 export var gravity_source = true
 export var path_color = Color(1, 0, 0)
+export var set_orbit_velocity = false setget set_orbit_velocity
+export(NodePath) var gravity_parent = null
 
-const GRAV_CONST = 20
+const GRAV_CONST = 25
 
 var path = []
 const PATH_COLOR = PoolColorArray([Color(1.0, 0.0, 0.0)])
+
+func orbit_velocity():
+	var parent = get_node(gravity_parent)
+	var r = (position - parent.position).length()
+	var vel = sqrt((GRAV_CONST * parent.mass) / r)
+	return Vector2(0, vel)
+
+func set_orbit_velocity(value):
+	if gravity_parent && value:
+		velocity = orbit_velocity()
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -43,7 +56,7 @@ func force():
 	return force
 	
 func _physics_process(delta):
-	if is_static:
+	if is_static || Engine.is_editor_hint():
 		return
 
 	acceleration = force() / mass;
@@ -51,9 +64,11 @@ func _physics_process(delta):
 	var new_acceleration = force() / mass;
 	velocity += delta * (acceleration + new_acceleration) / 2;
 
-	if path.size() > 10000:
+	
+	if path.size() > 500:
 		path.pop_front()
-	path.append(position)
+	if path.size() == 0 || (path[path.size() - 1] - position).length() > 20:
+		path.append(position)
 	
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
