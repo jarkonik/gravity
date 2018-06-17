@@ -39,7 +39,6 @@ script = ExtResource( 1 )
 
 [node name="Sun" parent="Planets" index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 0, 0 )
 scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 3 )
 mass = 27071155
@@ -49,7 +48,7 @@ is_static = true
 
 position = Vector2( 100, 0 )
 scale = Vector2( 0.01, 0.01 )
-velocity = Vector2( 0, -175.412 )
+velocity = Vector2( 0, -180.986 )
 mass = 5
 path_color = Color( 1, 0.398438, 0, 1 )
 gravity_parent = NodePath("../Sun")
@@ -58,7 +57,7 @@ gravity_parent = NodePath("../Sun")
 
 position = Vector2( 186, 0 )
 scale = Vector2( 0.01, 0.01 )
-velocity = Vector2( 0, 119.523 )
+velocity = Vector2( 0, 132.706 )
 mass = 67
 path_color = Color( 0.898438, 1, 0, 1 )
 clockwise_rotation = true
@@ -68,7 +67,7 @@ gravity_parent = NodePath("../Sun")
 
 position = Vector2( 258, 0 )
 scale = Vector2( 0.01, 0.01 )
-velocity = Vector2( 0, -78.4465 )
+velocity = Vector2( 0, -112.677 )
 mass = 400000
 path_color = Color( 0.125, 0, 1, 1 )
 gravity_parent = NodePath("../Sun")
@@ -77,17 +76,35 @@ gravity_parent = NodePath("../Sun")
 
 position = Vector2( 393, 0 )
 scale = Vector2( 0.01, 0.01 )
-velocity = Vector2( 0, -323.924 )
-mass = 9
+velocity = Vector2( 0, -91.2956 )
+mass = 300000
 path_color = Color( 1, 0, 0.84375, 1 )
 gravity_parent = NodePath("../Sun")
 
 [node name="Moon" parent="Planets" index="5" instance=ExtResource( 2 )]
 
 position = Vector2( 270, 0 )
-rotation = -19.2807
 scale = Vector2( 0.005, 0.005 )
-velocity = Vector2( 0, -176.777 )
+velocity = Vector2( 0, -176.186 )
+mass = 5
 gravity_parent = NodePath("../Earth")
+
+[node name="Phobos" parent="Planets" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 407.849, 0 )
+scale = Vector2( 0.005, 0.005 )
+velocity = Vector2( 0, -140.738 )
+mass = 5
+path_color = Color( 0.00390625, 1, 0.766541, 1 )
+gravity_parent = NodePath("../Mars")
+
+[node name="Deimos" parent="Planets" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 417.849, 0 )
+scale = Vector2( 0.005, 0.005 )
+velocity = Vector2( 0, -129.516 )
+mass = 5
+path_color = Color( 0.734375, 0, 0.430298, 1 )
+gravity_parent = NodePath("../Mars")
 
 

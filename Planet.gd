@@ -33,11 +33,12 @@ func orbit_velocity():
 	if !clockwise_rotation:
 		vel = -vel
 		
-	vel *= 1.15 # Make orbits a bit eccentric
+	vel *= 1.1 # Make orbits a bit eccentric
 	
 	return Vector2(0, vel) + parent.orbit_velocity()
 
 func _ready():
+	$Label.text = name
 	if !custom_velocity:
 		velocity = orbit_velocity()
 
