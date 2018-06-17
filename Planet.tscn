@@ -3,7 +3,7 @@
 [ext_resource path="res://planet-earth-1401465729mTH.jpg" type="Texture" id=1]
 [ext_resource path="res://Planet.gd" type="Script" id=2]
 
-[node name="Sprite2" type="Sprite"]
+[node name="Sprite2" type="Sprite" index="0"]
 
 position = Vector2( 760, 0 )
 scale = Vector2( 0.1, 0.1 )
@@ -16,6 +16,7 @@ is_static = false
 gravity_source = true
 path_color = Color( 1, 0, 0, 1 )
 clockwise_rotation = false
+custom_velocity = false
 gravity_parent = null
 
 

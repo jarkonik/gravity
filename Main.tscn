@@ -13,7 +13,7 @@ _sections_unfolded = [ "Material" ]
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 3, 3 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -42,48 +42,41 @@ script = ExtResource( 1 )
 position = Vector2( 0, 0 )
 scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
-mass = 27247945
+mass = 160000
 is_static = true
-clockwise_rotation = false
 
 [node name="Mercury" parent="Planets" index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 100, 0 )
+position = Vector2( 130, 0 )
 scale = Vector2( 0.02, 0.02 )
-velocity = Vector2( 0, 77.1517 )
-mass = 5
+mass = 50
 path_color = Color( 1, 0.398438, 0, 1 )
-clockwise_rotation = false
 gravity_parent = NodePath("../Sun")
 
 [node name="Venus" parent="Planets" index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 186, 0 )
+position = Vector2( 280, 0 )
 scale = Vector2( 0.02, 0.02 )
-velocity = Vector2( 0, 77.1517 )
-mass = 67
+mass = 50
 path_color = Color( 0.898438, 1, 0, 1 )
 clockwise_rotation = true
 gravity_parent = NodePath("../Sun")
 
 [node name="Earth" parent="Planets" index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 258, 0 )
-scale = Vector2( 0.02, 0.02 )
-velocity = Vector2( 0, 77.1517 )
-mass = 82
+position = Vector2( 650, 0 )
+scale = Vector2( 0.01, 0.01 )
+velocity = Vector2( 0, -1619.58 )
+mass = 50000
 path_color = Color( 0.125, 0, 1, 1 )
-clockwise_rotation = false
 gravity_parent = NodePath("../Sun")
 
-[node name="Mars" parent="Planets" index="4" instance=ExtResource( 2 )]
+[node name="Moon" parent="Planets" index="4" instance=ExtResource( 2 )]
 
-position = Vector2( 393, 0 )
-scale = Vector2( 0.02, 0.02 )
-velocity = Vector2( 0, 77.1517 )
-mass = 9
-clockwise_rotation = false
-gravity_parent = NodePath("../Sun")
+position = Vector2( 690, 0 )
+scale = Vector2( 0.001, 0.001 )
+velocity = Vector2( 0, -130.703 )
+mass = 500
+gravity_parent = NodePath("../Earth")
 
 

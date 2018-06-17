@@ -13,6 +13,7 @@ export var is_static = false
 export var gravity_source = true
 export var path_color = Color(1, 0, 0)
 export var clockwise_rotation = false
+export var custom_velocity = false
 
 export(NodePath) var gravity_parent = null
 
@@ -22,15 +23,20 @@ var path = []
 const PATH_COLOR = PoolColorArray([Color(1.0, 0.0, 0.0)])
 
 func orbit_velocity():
+	if !gravity_parent || is_static:
+		return Vector2(0, 0)
+	
 	var parent = get_node(gravity_parent)
 	var r = (position - parent.position).length()
 	var vel = sqrt((GRAV_CONST * parent.mass) / r)
-	if clockwise_rotation:
+	
+	if !clockwise_rotation:
 		vel = -vel
+	
 	return Vector2(0, vel)
 
 func _ready():
-	if gravity_parent:
+	if !custom_velocity:
 		velocity = orbit_velocity()
 
 func object_force(object):
@@ -54,8 +60,6 @@ func force():
 	return force
 	
 func _physics_process(delta):
-	delta = delta / 5
-	
 	if is_static || Engine.is_editor_hint():
 		return
 
@@ -67,7 +71,7 @@ func _physics_process(delta):
 	
 	if path.size() > 500:
 		path.pop_front()
-	if path.size() == 0 || (path[path.size() - 1] - position).length() > 20:
+	if path.size() == 0 || (path[path.size() - 1] - position).length() > 10:
 		path.append(position)
 	
 #func _process(delta):
