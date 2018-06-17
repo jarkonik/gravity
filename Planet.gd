@@ -72,7 +72,7 @@ func _physics_process(delta):
 	var new_acceleration = force() / mass;
 	velocity += delta * (acceleration + new_acceleration) / 2;
 	
-	if path.size() > 500:
+	if path.size() > 300:
 		path.pop_front()
 	if path.size() == 0 || (path[path.size() - 1] - position).length() > 5:
 		path.append(position)

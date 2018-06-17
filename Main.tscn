@@ -86,7 +86,7 @@ gravity_parent = NodePath("../Sun")
 position = Vector2( 270, 0 )
 scale = Vector2( 0.005, 0.005 )
 velocity = Vector2( 0, -176.186 )
-mass = 5
+mass = 10
 gravity_parent = NodePath("../Earth")
 
 [node name="Phobos" parent="Planets" index="6" instance=ExtResource( 2 )]
@@ -94,7 +94,7 @@ gravity_parent = NodePath("../Earth")
 position = Vector2( 407.849, 0 )
 scale = Vector2( 0.005, 0.005 )
 velocity = Vector2( 0, -140.738 )
-mass = 5
+mass = 20
 path_color = Color( 0.00390625, 1, 0.766541, 1 )
 gravity_parent = NodePath("../Mars")
 
@@ -103,7 +103,7 @@ gravity_parent = NodePath("../Mars")
 position = Vector2( 417.849, 0 )
 scale = Vector2( 0.005, 0.005 )
 velocity = Vector2( 0, -129.516 )
-mass = 5
+mass = 20
 path_color = Color( 0.734375, 0, 0.430298, 1 )
 gravity_parent = NodePath("../Mars")
 
