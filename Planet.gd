@@ -32,6 +32,8 @@ func orbit_velocity():
 	
 	if !clockwise_rotation:
 		vel = -vel
+		
+	vel *= 1.15 # Make orbits a bit eccentric
 	
 	return Vector2(0, vel) + parent.orbit_velocity()
 
@@ -55,6 +57,7 @@ func object_force(object):
 func force():
 	var siblings = get_parent().get_children()
 	var force = Vector2(0, 0)
+	
 	for sibling in siblings:
 		force += object_force(sibling)
 	return force
