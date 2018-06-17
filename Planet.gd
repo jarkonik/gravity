@@ -17,7 +17,7 @@ export var custom_velocity = false
 
 export(NodePath) var gravity_parent = null
 
-const GRAV_CONST = 1
+const GRAV_CONST = 0.1
 
 var path = []
 const PATH_COLOR = PoolColorArray([Color(1.0, 0.0, 0.0)])

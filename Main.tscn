@@ -13,13 +13,13 @@ _sections_unfolded = [ "Material" ]
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 3, 3 )
+zoom = Vector2( 1.7, 1.7 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
 limit_bottom = 10000000
 limit_smoothed = false
-drag_margin_h_enabled = true
+drag_margin_h_enabled = false
 drag_margin_v_enabled = true
 smoothing_enabled = false
 smoothing_speed = 5.0
@@ -47,8 +47,8 @@ is_static = true
 
 [node name="Mercury" parent="Planets" index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 130, 0 )
-scale = Vector2( 0.02, 0.02 )
+position = Vector2( 100, 0 )
+scale = Vector2( 0.01, 0.01 )
 velocity = Vector2( 0, -175.412 )
 mass = 5
 path_color = Color( 1, 0.398438, 0, 1 )
@@ -56,8 +56,8 @@ gravity_parent = NodePath("../Sun")
 
 [node name="Venus" parent="Planets" index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 280, 0 )
-scale = Vector2( 0.02, 0.02 )
+position = Vector2( 186, 0 )
+scale = Vector2( 0.01, 0.01 )
 velocity = Vector2( 0, 119.523 )
 mass = 67
 path_color = Color( 0.898438, 1, 0, 1 )
@@ -66,17 +66,27 @@ gravity_parent = NodePath("../Sun")
 
 [node name="Earth" parent="Planets" index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 651, 0 )
+position = Vector2( 258, 0 )
 scale = Vector2( 0.01, 0.01 )
 velocity = Vector2( 0, -78.4465 )
-mass = 50000
+mass = 400000
 path_color = Color( 0.125, 0, 1, 1 )
 gravity_parent = NodePath("../Sun")
 
-[node name="Moon" parent="Planets" index="4" instance=ExtResource( 2 )]
+[node name="Mars" parent="Planets" index="4" instance=ExtResource( 2 )]
 
-position = Vector2( 670, 0 )
-scale = Vector2( 0.001, 0.001 )
+position = Vector2( 393, 0 )
+scale = Vector2( 0.01, 0.01 )
+velocity = Vector2( 0, -323.924 )
+mass = 9
+path_color = Color( 1, 0, 0.84375, 1 )
+gravity_parent = NodePath("../Sun")
+
+[node name="Moon" parent="Planets" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 270, 0 )
+rotation = -19.2807
+scale = Vector2( 0.005, 0.005 )
 velocity = Vector2( 0, -176.777 )
 gravity_parent = NodePath("../Earth")
 
